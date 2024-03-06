@@ -107,7 +107,7 @@ export default function Lightning() {
                 <Button onClick={(e) => {
                   setSeed(randomSeed());
                   handleOnChange(prompt);
-                }} >
+                }} className="font-light h-5 w-5">
                   生成图片
                 </Button>
               </div>
