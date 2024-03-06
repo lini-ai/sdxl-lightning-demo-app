@@ -106,11 +106,11 @@ export default function Lightning() {
                 />
               </div>
               <div className='space-y-1'>
+                <label>刷新</label>
                 <Button onClick={(e) => {
                   setSeed(randomSeed());
                   handleOnChange(prompt);
-                }} className="font-light w-28">
-                  生成图片
+                }} className=" w-28">
                 </Button>
               </div>
             </div>
