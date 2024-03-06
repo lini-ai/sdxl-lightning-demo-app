@@ -85,40 +85,49 @@ export default function Lightning() {
               <div className="flex-1 space-y-1">
                 <label>提示词</label>
                 <Input
-                  onChange={(e) => {
-                    handleOnChange(e.target.value);
-                  }}
-                  className="font-light w-full"
-                  placeholder="Type something..."
-                  value={prompt}
+                    onChange={(e) => {
+                      handleOnChange(e.target.value);
+                    }}
+                    className="font-light w-full"
+                    placeholder="Type something..."
+                    value={prompt}
                 />
               </div>
               <div className="space-y-1">
                 <label>种子</label>
                 <Input
-                  onChange={(e) => {
-                    setSeed(e.target.value);
-                  }}
-                  className="font-light w-28"
-                  placeholder="random"
-                  type="number"
-                  value={seed}
+                    onChange={(e) => {
+                      setSeed(e.target.value);
+                    }}
+                    className="font-light w-28"
+                    placeholder="random"
+                    type="hidden"
+                    value={seed}
+                />
+                <Input
+                    onChange={(e) => {
+                      setSeed(e.target.value);
+                    }}
+                    className="font-light w-28"
+                    placeholder="random"
+                    type="submit"
+                    value={seed}
                 />
               </div>
-              <div className='space-y-1'>
-                <label>刷新</label>
-                <Button onClick={(e) => {
-                  setSeed(randomSeed());
-                  handleOnChange(prompt);
-                }} className=" w-28">
-                </Button>
-              </div>
+            </div>
+            <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
+              <Button onClick={(e) => {
+                setSeed(randomSeed());
+                handleOnChange(prompt);
+              }} size='icon'>
+                刷新
+              </Button>
             </div>
           </div>
           <div className="container flex flex-col space-y-6 lg:flex-row lg:space-y-0 p-3 md:p-0">
             <div className="flex-1 flex-col flex items-center justify-center">
               {image && inferenceTime && (
-                <div className="flex flex-row space-x-1 text-sm w-full mb-2">
+                  <div className="flex flex-row space-x-1 text-sm w-full mb-2">
                   <span className="text-neutral-500">Inference time:</span>
                   <span
                     className={
