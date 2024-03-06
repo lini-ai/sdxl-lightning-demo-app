@@ -449,3 +449,7 @@ export function getRandomIdeas() {
   }
   return result;
 }
+export function randomIdea() {
+  let len = imagePrompts.length;
+  return imagePrompts[Math.floor(Math.random() * len)];
+}

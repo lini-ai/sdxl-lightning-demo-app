@@ -8,9 +8,10 @@ import { Input } from "@/components/ui/input";
 import { ModelIcon } from "@/components/icons/model-icon";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
+import {randomIdea} from "@/prompts";
 
 const DEFAULT_PROMPT =
-  "a black cat with glowing eyes, cute, adorable, disney, pixar, highly detailed, 8k";
+  "A damaged explorer robot examining mysterious glowing hieroglyphs inside ancient towering alien ruins, strange structures and technologies overgrown with vines behind";
 
 function randomSeed() {
   return Math.floor(Math.random() * 10000000).toFixed(0);
@@ -74,7 +75,7 @@ export default function Lightning() {
       prompt: prompt,
       seed: seed ? Number(seed) : Number(randomSeed()),
     });
-  }, []);
+  }, [prompt, seed, connection]);
 
   return (
     <main>
@@ -116,11 +117,17 @@ export default function Lightning() {
               </div>
             </div>
             <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
+                <Button onClick={(e) => {
+                    setPrompt(randomIdea());
+                    setSeed(randomSeed());
+                }} size='icon'>
+                    下一个提示词
+                </Button>
               <Button onClick={(e) => {
-                setSeed(randomSeed());
-                handleOnChange(prompt);
+                  setSeed(randomSeed());
+                  handleOnChange(prompt);
               }} size='icon'>
-                刷新
+                生成图片
               </Button>
             </div>
           </div>
@@ -148,23 +155,23 @@ export default function Lightning() {
             </div>
           </div>
         </div>
-        <div className="container flex flex-col items-center justify-center my-4">
-          <p className="text-sm text-base-content/70 py-4 text-center text-neutral-400">
-            This playground is hosted on{" "}
-            <strong>
-              <a href="https://fal.ai" className="underline" target="_blank">
-                fal.ai
-              </a>
-            </strong>{" "}
-            and is for demonstration purposes only.
-          </p>
-          <div className="flex flex-row items-center space-x-2">
-            <span className="text-xs font-mono">powered by</span>
-            <Link href="https://fal.ai" target="_blank">
-              <ModelIcon />
-            </Link>
-          </div>
-        </div>
+        {/*<div className="container flex flex-col items-center justify-center my-4">*/}
+        {/*  <p className="text-sm text-base-content/70 py-4 text-center text-neutral-400">*/}
+        {/*    This playground is hosted on{" "}*/}
+        {/*    <strong>*/}
+        {/*      <a href="https://fal.ai" className="underline" target="_blank">*/}
+        {/*        fal.ai*/}
+        {/*      </a>*/}
+        {/*    </strong>{" "}*/}
+        {/*    and is for demonstration purposes only.*/}
+        {/*  </p>*/}
+        {/*  <div className="flex flex-row items-center space-x-2">*/}
+        {/*    <span className="text-xs font-mono">powered by</span>*/}
+        {/*    <Link href="https://fal.ai" target="_blank">*/}
+        {/*      <ModelIcon />*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
     </main>
   );
