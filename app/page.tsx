@@ -87,7 +87,7 @@ export default function Lightning() {
                 <label>提示词</label>
                 <Input
                     onChange={(e) => {
-                      handleOnChange(e.target.value);
+                      setPrompt(e.target.value);
                     }}
                     className="font-light w-full"
                     placeholder="Type something..."
@@ -108,7 +108,7 @@ export default function Lightning() {
               </div>
             </div>
             <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
-              <Button onClick={(e) => {setPrompt(randomIdea());}}>提示词</Button>
+              <Button onClick={(e) => {(randomIdea());}}>提示词</Button>
               <Button onClick={(e) => {setSeed(randomSeed());}}>种子</Button>
             </div>
           </div>
