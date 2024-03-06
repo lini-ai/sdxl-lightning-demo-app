@@ -101,7 +101,7 @@ export default function Lightning() {
                   }}
                   className="font-light w-28"
                   placeholder="random"
-                  type="hidden"
+                  type="number"
                   value={seed}
                 />
                 <Button onClick={(e) => {
