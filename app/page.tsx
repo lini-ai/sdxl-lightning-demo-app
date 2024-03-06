@@ -105,30 +105,11 @@ export default function Lightning() {
                     type="hidden"
                     value={seed}
                 />
-                <Input
-                    onChange={(e) => {
-                      setSeed(e.target.value);
-                    }}
-                    className="font-light w-28"
-                    placeholder="random"
-                    type="submit"
-                    value={seed}
-                />
               </div>
             </div>
             <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
-                <Button onClick={(e) => {
-                    setPrompt(randomIdea());
-                    setSeed(randomSeed());
-                }}>
-                    提示词
-                </Button>
-              <Button onClick={(e) => {
-                  setSeed(randomSeed());
-                  handleOnChange(prompt);
-              }}>
-                生成
-              </Button>
+              <Button onClick={(e) => {setPrompt(randomIdea());}}>提示词</Button>
+              <Button onClick={(e) => {setSeed(randomSeed());}}>种子</Button>
             </div>
           </div>
           <div className="container flex flex-col space-y-6 lg:flex-row lg:space-y-0 p-3 md:p-0">
