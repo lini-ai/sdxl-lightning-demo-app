@@ -108,7 +108,7 @@ export default function Lightning() {
               </div>
             </div>
             <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
-              <Button onClick={(e) => {(randomIdea());}}>提示词</Button>
+              <Button onClick={(e) => {setPrompt(randomIdea());}}>提示词</Button>
               <Button onClick={(e) => {setSeed(randomSeed());}}>种子</Button>
             </div>
           </div>
