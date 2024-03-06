@@ -120,14 +120,14 @@ export default function Lightning() {
                 <Button onClick={(e) => {
                     setPrompt(randomIdea());
                     setSeed(randomSeed());
-                }} size='icon'>
-                    下一个提示词
+                }}>
+                    提示词
                 </Button>
               <Button onClick={(e) => {
                   setSeed(randomSeed());
                   handleOnChange(prompt);
-              }} size='icon'>
-                生成图片
+              }}>
+                生成
               </Button>
             </div>
           </div>
