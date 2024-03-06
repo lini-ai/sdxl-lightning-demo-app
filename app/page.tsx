@@ -32,7 +32,7 @@ const INPUT_DEFAULTS = {
 
 export default function Lightning() {
   const [image, setImage] = useState<null | string>(null);
-  const [prompt, setPrompt] = useState<string>(DEFAULT_PROMPT);
+  const [prompt, setPrompt] = useState<string>(randomIdea());
   const [seed, setSeed] = useState<string>(randomSeed());
   const [inferenceTime, setInferenceTime] = useState<number>(NaN);
 
