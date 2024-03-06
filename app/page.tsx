@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { ModelIcon } from "@/components/icons/model-icon";
 import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 const DEFAULT_PROMPT =
-  "A cinematic shot of a baby raccoon wearing an intricate italian priest robe";
+  "a black cat with glowing eyes, cute, adorable, disney, pixar, highly detailed, 8k";
 
 function randomSeed() {
   return Math.floor(Math.random() * 10000000).toFixed(0);
@@ -82,7 +83,7 @@ export default function Lightning() {
           <div className="container px-3 md:px-0 flex flex-col space-y-2">
             <div className="flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full">
               <div className="flex-1 space-y-1">
-                <label>Prompt</label>
+                <label>提示词</label>
                 <Input
                   onChange={(e) => {
                     handleOnChange(e.target.value);
@@ -93,17 +94,22 @@ export default function Lightning() {
                 />
               </div>
               <div className="space-y-1">
-                <label>Seed</label>
+                <label>种子</label>
                 <Input
                   onChange={(e) => {
                     setSeed(e.target.value);
-                    handleOnChange(prompt);
                   }}
                   className="font-light w-28"
                   placeholder="random"
-                  type="number"
+                  type="hidden"
                   value={seed}
                 />
+                <Button onClick={(e) => {
+                  setSeed(randomSeed());
+                  handleOnChange(prompt);
+                }} >
+                  生成图片
+                </Button>
               </div>
             </div>
           </div>
