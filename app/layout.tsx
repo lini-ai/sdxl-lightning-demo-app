@@ -10,7 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "LINI.AI",
   description: "LINI.AI",
+  authors: [{ name: "lini.ai", url: "https://lini-ai.online" }],
   metadataBase: new URL("https://pic.lini-ai.online/"),
+  openGraph: {
+    images: "/og_thumbnail.jpeg",
+  },
 };
 
 export default function RootLayout({

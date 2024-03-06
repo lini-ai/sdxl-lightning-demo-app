@@ -84,7 +84,7 @@ export default function Lightning() {
           <div className="container px-3 md:px-0 flex flex-col space-y-2">
             <div className="flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full">
               <div className="flex-1 space-y-1">
-                <label>提示词</label>
+                <Button onClick={(e) => {setPrompt(randomIdea());}}>提示词</Button>
                 <Input
                     onChange={(e) => {
                       setPrompt(e.target.value);
@@ -95,7 +95,7 @@ export default function Lightning() {
                 />
               </div>
               <div className="space-y-1">
-                <label>种子</label>
+                <Button onClick={(e) => {setSeed(randomSeed());}}>种子</Button>
                 <Input
                     onChange={(e) => {
                       setSeed(e.target.value);
@@ -106,10 +106,6 @@ export default function Lightning() {
                     value={seed}
                 />
               </div>
-            </div>
-            <div className='flex flex-col max-md:space-y-4 md:flex-row md:space-x-4 max-w-full"'>
-              <Button onClick={(e) => {setPrompt(randomIdea());}}>提示词</Button>
-              <Button onClick={(e) => {setSeed(randomSeed());}}>种子</Button>
             </div>
           </div>
           <div className="container flex flex-col space-y-6 lg:flex-row lg:space-y-0 p-3 md:p-0">
